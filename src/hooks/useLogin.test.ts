@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -130,7 +130,7 @@ describe("useLogin Hook", () => {
     expect(navigate("/dashboard/users"));
   });
 
-  //should i catch any error while making a request
+  //should i catch any error while making a
   test("should handle network error", async () => {
     const mockError = new Error("Network error");
     (axios.get as jest.Mock).mockRejectedValue(mockError);
