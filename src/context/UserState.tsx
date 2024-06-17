@@ -8,6 +8,7 @@ type Props = {
 
 const UserState = ({ children }: Props) => {
   const [user, setUser] = useState<any>("");
+  const [isSideBarActive, setIsSideBarActive] = useState<boolean>(false);
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("lendsqrCurrentUser");
@@ -20,6 +21,8 @@ const UserState = ({ children }: Props) => {
   const value = {
     user,
     setUser,
+    isSideBarActive,
+    setIsSideBarActive,
   };
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
