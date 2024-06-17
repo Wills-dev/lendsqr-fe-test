@@ -1,17 +1,17 @@
 .side__container {
-  z-index: 10;
+  z-index: 5;
   width: 283px;
   background-color: #fff;
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.04);
   transform: translateX(0);
   transition: all 0.4s ease-out;
   .inner__container {
-    height: 100vh;
-    max-height: 100vh;
+    // height: 100vh;
+    // max-height: 100vh;
     min-height: 100vh;
     padding-top: 130px;
     padding-bottom: 30px;
-    overflow-y: auto;
+    // overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0px;
       height: 0px;
@@ -30,6 +30,7 @@
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
+    white-space: nowrap;
   }
   .header__logo__wrapper {
     display: none;
@@ -57,6 +58,7 @@
       color: #545f7d;
       font-size: 12px;
       font-weight: 500;
+      white-space: nowrap;
     }
     .dashboard__section {
       display: flex;
@@ -87,8 +89,14 @@
     padding-top: 0;
     padding-bottom: 30px;
     position: fixed;
+    z-index: 10;
+
     .inner__container {
-      padding-top: 0px;
+      height: 100vh;
+      max-height: 100vh;
+      min-height: 100vh;
+      padding-top: 0;
+      overflow-y: auto;
     }
     .header__logo__wrapper {
       display: flex;
