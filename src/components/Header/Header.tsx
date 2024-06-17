@@ -1,11 +1,31 @@
+import { useContext } from "react";
 import "./Header.scss";
+import { UserContext } from "@/context/UserState";
 
 const Header = () => {
+  const { isSideBarActive, setIsSideBarActive } = useContext(UserContext);
   return (
     <div className="header__container">
       <div className="header__left__container">
         <div className="header__logo__wrapper">
           <img src="/logo.svg" alt="logo" />
+          {!isSideBarActive && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className=""
+              onClick={() => setIsSideBarActive(true)}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          )}
         </div>
         <form className="header__search__wrapper">
           <input

@@ -19,10 +19,14 @@
       align-items: center;
       gap: 10px;
       padding-left: 20px;
+
       img {
         width: 144px;
         height: auto;
         object-fit: contain;
+      }
+      svg {
+        display: none;
       }
     }
     .header__search__wrapper {
@@ -100,6 +104,21 @@
   }
 }
 
+@media (max-width: 760px) {
+  .header__container {
+    .header__left__container {
+      .header__logo__wrapper {
+        svg {
+          display: block;
+          width: 2rem;
+          height: 2rem;
+          color: #213f7d;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 550px) {
   .header__container {
     height: 80px;
@@ -111,6 +130,12 @@
         padding-left: 20px;
         img {
           width: 100px;
+        }
+        svg {
+          display: block;
+          width: 1.5rem;
+          height: 1.5rem;
+          color: #213f7d;
         }
       }
     }
