@@ -3,10 +3,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Work Sans", sans-serif;
+  background-color: #fbfbfb;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -29,6 +31,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .page-controls {
+  max-width: 300px;
   width: 300px;
   display: flex;
   justify-content: flex-end;

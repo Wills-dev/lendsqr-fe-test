@@ -40,7 +40,7 @@ export const useLogin = () => {
 
     try {
       const { data } = await axiosInstance.get(
-        "/62ae12da-f06b-4831-8eea-1e98e94ac6b5"
+        "/a57c4030-f8ee-4ab3-8552-b071175ccdc8"
       );
       localStorage.setItem("lendsqrCurrentUser", JSON.stringify(data));
       toast.success("Login successful!", {
@@ -58,7 +58,7 @@ export const useLogin = () => {
         navigate("/dashboard/users");
       }, 2000);
     } catch (error) {
-      console.error("Network error:", error);
+      console.error("error logging in", error);
       toast.error("Network error. Please try again later.", {
         duration: 4000,
         style: {

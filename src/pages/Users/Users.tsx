@@ -1,187 +1,53 @@
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./Users.scss";
 
+import { useGetAllUsers } from "@/hooks/useGetAllUsers";
+import { User } from "@/types";
+import { formatDate } from "@/helpers";
+
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
-import { useState } from "react";
 import ReactPaginate from "react-paginate";
 
 const Users = () => {
+  const [showUserAction, setShowUserAction] = useState<null | number>(null);
+  const [showFilter, setshowFilter] = useState(false);
+
+  const {
+    handlePageClick,
+    offset,
+    pageCount,
+    currentItems,
+    loading,
+    handleInputChange,
+    handleFilter,
+    handleReset,
+    filters,
+    filteredUsers,
+  } = useGetAllUsers();
   const navigate = useNavigate();
 
-  const handleNavigate = (url: any) => {
-    navigate(url);
-  };
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const data = [
-    {
-      organization: "Lendsqr",
-      username: "Adedeji",
-      email: "adedeji@lendsqr.com",
-      phoneNumber: "08078903721",
-      dateJoined: "May 15, 2020 10:00 AM",
-      status: "Inactive",
-    },
-    {
-      organization: "Irorun",
-      username: "Debby Ogana",
-      email: "debby2@irorun.com",
-      phoneNumber: "08160780928",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Pending",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Tosin Dokunmu",
-      email: "tosin@lendsqr.com",
-      phoneNumber: "07003309226",
-      dateJoined: "Apr 10, 2020 10:00 AM",
-      status: "Pending",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Active",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Tosin Dokunmu",
-      email: "tosin@lendsqr.com",
-      phoneNumber: "08060780900",
-      dateJoined: "Apr 10, 2020 10:00 AM",
-      status: "Active",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Tosin Dokunmu",
-      email: "tosin@lendsqr.com",
-      phoneNumber: "08060780900",
-      dateJoined: "Apr 10, 2020 10:00 AM",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Grace Effiom",
-      email: "grace@lendstar.com",
-      phoneNumber: "07060780922",
-      dateJoined: "Apr 30, 2020 10:00 AM",
-      status: "Blacklisted",
-    },
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowUserAction(null);
+        setshowFilter(false);
+      }
+    };
 
-    // Add more data as needed
-  ];
+    document.addEventListener("mousedown", handleClickOutside);
 
-  const itemsPerPage = 10;
-
-  const [currentPage, setCurrentPage] = useState(0);
-
-  const handlePageClick = ({ selected }: any) => {
-    setCurrentPage(selected);
-  };
-
-  const offset = currentPage * itemsPerPage;
-  const pageCount = Math.ceil(data.length / itemsPerPage);
-  const currentItems = data.slice(offset, offset + itemsPerPage);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="container">
@@ -194,28 +60,28 @@ const Users = () => {
           <div className="overview__wrapper">
             <div className="overview__card">
               <div className="overview__card__wrapper">
-                <img src="/public/assets/icons/icon (1).svg" alt="" />
+                <img src="/assets/icons/icon (1).svg" alt="" />
                 <h6>USERS</h6>
                 <h4>2,432</h4>
               </div>
             </div>
             <div className="overview__card">
               <div className="overview__card__wrapper">
-                <img src="/public/assets/icons/icon 2.svg" alt="" />
+                <img src="/assets/icons/icon 2.svg" alt="" />
                 <h6>Active Users</h6>
                 <h4>2,432</h4>
               </div>
             </div>
             <div className="overview__card">
               <div className="overview__card__wrapper">
-                <img src="/public/assets/icons/icon (2).svg" alt="" />
+                <img src="/assets/icons/icon (2).svg" alt="" />
                 <h6>Users with Loans</h6>
                 <h4>12,453</h4>
               </div>
             </div>
             <div className="overview__card">
               <div className="overview__card__wrapper">
-                <img src="/public/assets/icons/icon (3).svg" alt="" />
+                <img src="/assets/icons/icon (3).svg" alt="" />
                 <h6>Users with Savings</h6>
                 <h4>102,453</h4>
               </div>
@@ -229,12 +95,111 @@ const Users = () => {
                     <th>
                       <div className="table__header">
                         <h6> Organization </h6>
-                        <button>
+                        <div className="filter__ctn">
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
-                        </button>
+                          {showFilter && (
+                            <div className="filter__wrapper" ref={dropdownRef}>
+                              <div className="filter__section">
+                                <label htmlFor="organization">
+                                  Organization
+                                </label>
+                                <select
+                                  name="organization"
+                                  value={filters.organization}
+                                  onChange={handleInputChange}
+                                  id="organization"
+                                ></select>
+                              </div>
+                              <div className="filter__section">
+                                <label htmlFor="User">User</label>
+                                <input
+                                  type="text"
+                                  name="username"
+                                  value={filters.username}
+                                  onChange={handleInputChange}
+                                  id="User"
+                                  placeholder="User"
+                                />
+                              </div>
+                              <div className="filter__section">
+                                <label htmlFor="Email">Email</label>
+                                <input
+                                  type="email"
+                                  name="email"
+                                  value={filters.email}
+                                  onChange={handleInputChange}
+                                  id="Email"
+                                  placeholder="Email"
+                                />
+                              </div>
+                              <div className="filter__section">
+                                <label htmlFor="Date">Date</label>
+                                <input
+                                  type="date"
+                                  name="date_joined"
+                                  value={filters.date_joined}
+                                  onChange={handleInputChange}
+                                  id="Date"
+                                  placeholder="Date"
+                                />
+                              </div>
+                              <div className="filter__section">
+                                <label htmlFor="PhoneNumber">
+                                  Phone Number
+                                </label>
+                                <input
+                                  type="number"
+                                  name="phoneNumber"
+                                  value={filters.phoneNumber}
+                                  onChange={handleInputChange}
+                                  id="PhoneNumber"
+                                  placeholder="Phone Number"
+                                />
+                              </div>
+                              <div className="filter__section">
+                                <label htmlFor="status">Status</label>
+                                <select
+                                  name="status"
+                                  value={filters.status}
+                                  onChange={handleInputChange}
+                                  id="status"
+                                >
+                                  <option defaultValue="select">Select</option>
+                                  <option value="Inactive">Inactive</option>
+                                  <option value="Active">Active</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Blacklisted">
+                                    Blacklisted
+                                  </option>
+                                </select>
+                              </div>
+                              <div className="filter__btn__ctn">
+                                <button
+                                  className="reset__btn"
+                                  onClick={() => {
+                                    handleReset();
+                                    setshowFilter(false);
+                                  }}
+                                >
+                                  Reset
+                                </button>
+                                <button
+                                  className="filter__btn"
+                                  onClick={() => {
+                                    handleFilter();
+                                    setshowFilter(false);
+                                  }}
+                                >
+                                  Filter
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </th>
                     <th>
@@ -243,8 +208,9 @@ const Users = () => {
                         <h6> Username </h6>
                         <button>
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
                         </button>
                       </div>
@@ -254,8 +220,9 @@ const Users = () => {
                         <h6> Email</h6>
                         <button>
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
                         </button>
                       </div>
@@ -265,8 +232,9 @@ const Users = () => {
                         <h6> Phone Number </h6>
                         <button>
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
                         </button>
                       </div>
@@ -276,8 +244,9 @@ const Users = () => {
                         <h6> Date Joined</h6>
                         <button>
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
                         </button>
                       </div>
@@ -287,8 +256,9 @@ const Users = () => {
                         <h6> Status</h6>
                         <button>
                           <img
-                            src="/public/assets/icons/filter-results-button.svg"
+                            src="/assets/icons/filter-results-button.svg"
                             alt="filter"
+                            onClick={() => setshowFilter((prev) => !prev)}
                           />
                         </button>
                       </div>
@@ -296,30 +266,70 @@ const Users = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentItems.map((item, index) => (
-                    <tr
-                      key={index}
-                      onClick={() =>
-                        handleNavigate(
-                          "/dashboard/users/user-info/24c0d8d5-1a7b-4e18-9540-6a3d46ca3299"
-                        )
-                      }
-                    >
-                      <td>{item.organization}</td>
-                      <td>{item.username}</td>
-                      <td>{item.email}</td>
-                      <td>{item.phoneNumber}</td>
-                      <td>{item.dateJoined}</td>
+                  {currentItems?.map((item: User, index: number) => (
+                    <tr key={index}>
+                      <td>{item?.organization}</td>
+                      <td>{item?.username}</td>
+                      <td>{item?.email}</td>
+                      <td>{item?.phoneNumber}</td>
                       <td>
-                        <span className={`status ${item.status.toLowerCase()}`}>
+                        {formatDate(item?.date_joined.replace(/\.SSS/g, ""))}
+                      </td>
+                      <td>
+                        <span
+                          className={`status ${item?.status.toLowerCase()}`}
+                        >
                           {item.status}
                         </span>
                       </td>
                       <td>
-                        <img
-                          src="/public/assets/icons/ic-more-vert-18px.svg"
-                          alt=""
-                        />
+                        <div className="" ref={dropdownRef}>
+                          <div className="table__action__ctn">
+                            <div className="" ref={dropdownRef}>
+                              <img
+                                onClick={() =>
+                                  setShowUserAction((prev) =>
+                                    prev === item.id ? null : item.id
+                                  )
+                                }
+                                src="/assets/icons/ic-more-vert-18px.svg"
+                                alt="action menu"
+                              />
+                            </div>
+
+                            {showUserAction === item.id && (
+                              <div className="table__action__wrapper">
+                                <Link
+                                  to="/dashboard/users/user-info/24c0d8d5-1a7b-4e18-9540-6a3d46ca3299"
+                                  className="table__action__content"
+                                >
+                                  {" "}
+                                  <img
+                                    src="/public/assets/icons/np_view_1214519_000000 1.svg"
+                                    alt=""
+                                  />{" "}
+                                  <p>View Details</p>
+                                </Link>
+                                <Link to="/" className="table__action__content">
+                                  {" "}
+                                  <img
+                                    src="/public/assets/icons/np_delete-friend_3248001_000000 1.svg"
+                                    alt=""
+                                  />{" "}
+                                  <p>Blacklist User</p>
+                                </Link>
+                                <Link to="/" className="table__action__content">
+                                  {" "}
+                                  <img
+                                    src="/public/assets/icons/np_user_2995993_000000 1.svg"
+                                    alt=""
+                                  />{" "}
+                                  <p>Activate User</p>
+                                </Link>
+                              </div>
+                            )}
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -330,9 +340,9 @@ const Users = () => {
               <div className="page-info">
                 Showing{" "}
                 <div className="page">
-                  {offset + 1} to {offset + currentItems.length}
+                  {offset + 1} to {offset + currentItems?.length}
                 </div>{" "}
-                out of {data.length}
+                out of {filteredUsers?.length}
               </div>
               <div className="page-controls">
                 <ReactPaginate
