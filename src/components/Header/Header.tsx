@@ -1,5 +1,7 @@
 import { useContext } from "react";
+
 import "./Header.scss";
+
 import { UserContext } from "@/context/UserState";
 
 const Header = () => {
@@ -43,7 +45,7 @@ const Header = () => {
         <a href="/" target="_blank" rel="noopener noreferrer">
           Docs
         </a>
-        <img src="/public/assets/bell.svg" alt="bell" className="bell" />
+        <img src="/assets/bell.svg" alt="bell" className="bell" />
         <div className="header__profile__wrapper">
           <img src="/assets/avatar.svg" alt="avatar" className="profile__pic" />
           <p>lorem</p>
