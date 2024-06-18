@@ -150,5 +150,6 @@ export const useGetAllUsers = () => {
     handleReset,
     filters,
     filteredUsers,
+    allUsers,
   };
 };
