@@ -347,7 +347,7 @@ const Users = () => {
                                           >
                                             {" "}
                                             <img
-                                              src="/public/assets/icons/np_view_1214519_000000 1.svg"
+                                              src="/assets/icons/np_view_1214519_000000 1.svg"
                                               alt=""
                                             />{" "}
                                             <p>View Details</p>
@@ -358,7 +358,7 @@ const Users = () => {
                                           >
                                             {" "}
                                             <img
-                                              src="/public/assets/icons/np_delete-friend_3248001_000000 1.svg"
+                                              src="/assets/icons/np_delete-friend_3248001_000000 1.svg"
                                               alt=""
                                             />{" "}
                                             <p>Blacklist User</p>
@@ -369,7 +369,7 @@ const Users = () => {
                                           >
                                             {" "}
                                             <img
-                                              src="/public/assets/icons/np_user_2995993_000000 1.svg"
+                                              src="/assets/icons/np_user_2995993_000000 1.svg"
                                               alt=""
                                             />{" "}
                                             <p>Activate User</p>
