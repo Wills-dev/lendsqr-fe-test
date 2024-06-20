@@ -63,6 +63,7 @@
     .dashboard__section {
       display: flex;
       flex-direction: column;
+      gap: 10px;
       .dashboard__link__wrapper {
         display: flex;
         align-items: center;
@@ -78,6 +79,27 @@
         background-color: rgba(57, 205, 204, 0.1);
         border-left: 3px solid rgba(57, 205, 204);
       }
+    }
+  }
+  .logout__ctn {
+    border-top: 1px solid #213f7d2a;
+    padding: 1rem 20px 0;
+    margin-top: 3rem;
+    button {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      color: #213f7d;
+      font-size: 16px;
+      border: none;
+      img {
+        margin-right: 8px;
+      }
+    }
+    p {
+      font-size: 12px;
+      color: #213f7d;
+      padding-top: 2rem;
     }
   }
 }

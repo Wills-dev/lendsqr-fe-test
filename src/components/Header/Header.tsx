@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import "./Header.scss";
 
-import { UserContext } from "@/context/UserState";
+import { UserContext } from "../../context/UserState";
 
 const Header = () => {
   const { isSideBarActive, setIsSideBarActive } = useContext(UserContext);
