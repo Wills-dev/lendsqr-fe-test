@@ -35,7 +35,7 @@
       align-items: center;
       margin: 0 20px;
       .image {
-        min-width: 600px;
+        max-width: 90%;
         height: auto;
       }
     }
@@ -52,7 +52,8 @@
     }
     .right-wrapper {
       padding: 0 6em;
-      max-width: 447px;
+      max-width: 100%;
+      width: 90%;
       min-height: 90vh;
       display: flex;
       justify-content: center;
@@ -76,6 +77,7 @@
     }
 
     .login-form {
+      width: 100%;
       .input-container {
         margin-bottom: 15px;
         input {

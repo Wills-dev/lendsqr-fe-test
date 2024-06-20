@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 
-export const UserContext = createContext<any>(null);
+export const UserContext = createContext<any>({ isSideBarActive: false });
 
 type Props = {
   children: React.ReactNode;

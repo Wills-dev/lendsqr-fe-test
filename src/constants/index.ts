@@ -115,3 +115,12 @@ export const dashboardSectionContent = [
     ],
   },
 ];
+
+export const userNavLink = [
+  "General Details",
+  "Documents",
+  "Bank Details",
+  "Loans",
+  "Savings",
+  "App and System",
+];

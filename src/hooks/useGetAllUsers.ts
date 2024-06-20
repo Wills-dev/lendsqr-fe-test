@@ -1,56 +1,7 @@
-// import { axiosInstance } from "@/axiosInstance";
-// import { User } from "@/types";
-// import React, { useEffect, useState } from "react";
-
-// export const useGetAllUsers = () => {
-//   const [allUsers, setAllUsers] = useState<User[]>([]);
-//   const [currentPage, setCurrentPage] = useState(0);
-//   const [pageCount, setPageCount] = useState(0);
-//   const [loading, setLoading] = useState(false);
-//   const itemsPerPage = 10;
-
-//   const handlePageClick = ({ selected }: any) => {
-//     setCurrentPage(selected);
-//   };
-
-//   const getAllUsers = async () => {
-//     setLoading(true);
-//     try {
-//       const { data } = await axiosInstance.get(
-//         `/0d1b50ae-860a-446a-ad38-4e73b165c3b4`
-//       );
-//       setAllUsers(data);
-//       const pageCount = Math.ceil(data.length / itemsPerPage);
-//       setPageCount(pageCount);
-//     } catch (error) {
-//       console.log("error getting users", error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   useEffect(() => {
-//     getAllUsers();
-//   }, []);
-
-//   const offset = currentPage * itemsPerPage;
-//   const currentItems = allUsers.slice(offset, offset + itemsPerPage);
-
-//   return {
-//     allUsers,
-//     currentPage,
-//     handlePageClick,
-//     offset,
-//     pageCount,
-//     currentItems,
-//     loading,
-//   };
-// };
-
 import React, { useEffect, useState } from "react";
 
-import { axiosInstance } from "@/axiosInstance";
-import { User } from "@/types";
+import { axiosInstance } from "../axiosInstance";
+import { User } from "../types";
 
 export const useGetAllUsers = () => {
   const [allUsers, setAllUsers] = useState<User[]>([]);
@@ -151,5 +102,6 @@ export const useGetAllUsers = () => {
     filters,
     filteredUsers,
     allUsers,
+    currentPage,
   };
 };

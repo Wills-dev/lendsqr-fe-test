@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Sidebar.scss";
-import { dashboardSectionContent } from "@/constants";
-import { UserContext } from "@/context/UserState";
+import { dashboardSectionContent } from "../../constants";
+import { UserContext } from "../../context/UserState";
 import { useContext } from "react";
 
 const Sidebar = () => {
@@ -56,6 +56,12 @@ const Sidebar = () => {
             </div>
           </div>
         ))}
+        <div className="logout__ctn">
+          <button>
+            <img src="/assets/icons/sign-out 1.svg" alt="" /> Logout
+          </button>
+          <p>v1.2.0</p>
+        </div>
       </div>
     </div>
   );

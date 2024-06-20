@@ -7,6 +7,7 @@
     "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true,
+    "types": ["vitest/globals"],
 
     "allowJs": true,
 
