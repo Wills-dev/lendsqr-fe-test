@@ -15,7 +15,7 @@ const UserInfo = ({ userInfo }: Props) => {
     <>
       <div className="user__upper__section">
         <div className="user__summary">
-          <img src="/public/assets/icons/avatar.svg" alt="" />
+          <img src="/assets/icons/avatar.svg" alt="" />
           <div className="user__name__ctn">
             <h6>{userInfo?.full_name}</h6>
             <p>LSQF{userInfo?.id}</p>
@@ -24,15 +24,15 @@ const UserInfo = ({ userInfo }: Props) => {
             <p>User’s Tier</p>
             <div className="user__rating">
               <img
-                src="/public/assets/icons/np_star_1208084_000000 1.svg"
+                src="/assets/icons/np_star_1208084_000000 1.svg"
                 alt="star"
               />
               <img
-                src="/public/assets/icons//np_star_1171151_000000 1.svg"
+                src="/assets/icons//np_star_1171151_000000 1.svg"
                 alt="star"
               />
               <img
-                src="/public/assets/icons//np_star_1171151_000000 1.svg"
+                src="/assets/icons//np_star_1171151_000000 1.svg"
                 alt="star"
               />
             </div>
