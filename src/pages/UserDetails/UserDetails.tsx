@@ -28,7 +28,7 @@ const UserDetails = () => {
         <Sidebar />
         <div className="main__wrapper">
           <button className="bac__btn" onClick={goBack}>
-            <img src="/public/assets/icons/Vector.svg" alt="back" />
+            <img src="/assets/icons/Vector.svg" alt="back" />
             Back to Users
           </button>
           <div className="title__ctn">
