@@ -14,7 +14,7 @@ import { Spin } from "antd";
 
 const UserDetails = () => {
   const { userId } = useParams();
-  const { loading, userInfo, getUserInfo } = useGetUserInfo();
+  const { error, loading, userInfo, getUserInfo } = useGetUserInfo();
 
   useEffect(() => {
     getUserInfo(userId);
@@ -43,9 +43,17 @@ const UserDetails = () => {
               <Spin size="large" />
             </div>
           ) : (
-            <div data-testid="user-data">
-              <UserInfo userInfo={userInfo} />
-            </div>
+            <>
+              {!error ? (
+                <div data-testid="user-data">
+                  <UserInfo userInfo={userInfo} />
+                </div>
+              ) : (
+                <div data-testid="error">
+                  <p>Error fetching user info...</p>
+                </div>
+              )}
+            </>
           )}
         </div>
       </main>
