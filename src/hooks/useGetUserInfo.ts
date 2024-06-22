@@ -5,6 +5,7 @@ import { UserData } from "../types";
 
 export const useGetUserInfo = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState<UserData>({
     id: 0,
     full_name: "",
@@ -41,7 +42,9 @@ export const useGetUserInfo = () => {
     try {
       const { data } = await axiosInstance.get(`/${userId}`);
       setUserInfo(data);
+      setError(false);
     } catch (error) {
+      setError(true);
       console.log("error getting user details", error);
     } finally {
       setLoading(false);
@@ -51,5 +54,6 @@ export const useGetUserInfo = () => {
     loading,
     userInfo,
     getUserInfo,
+    error,
   };
 };
