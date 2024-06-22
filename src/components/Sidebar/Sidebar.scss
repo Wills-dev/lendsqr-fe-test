@@ -5,6 +5,15 @@
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.04);
   transform: translateX(0);
   transition: all 0.4s ease-out;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
   .inner__container {
     // height: 100vh;
     // max-height: 100vh;
@@ -12,10 +21,6 @@
     padding-top: 130px;
     padding-bottom: 30px;
     // overflow-y: auto;
-    &::-webkit-scrollbar {
-      width: 0px;
-      height: 0px;
-    }
   }
 
   img {
