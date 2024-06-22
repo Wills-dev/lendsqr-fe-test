@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { useEffect, act } from "react";
 import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { vi, describe, it, expect, afterEach } from "vitest";
@@ -12,7 +12,7 @@ type MockedAxios = {
 
 const mockedAxios = axios as unknown as MockedAxios;
 
-describe("useGetUserInfo", () => {
+describe("Get user info", () => {
   afterEach(() => {
     vi.clearAllMocks();
   });

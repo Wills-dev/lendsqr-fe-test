@@ -37,7 +37,7 @@ const Header = () => {
             placeholder="Search for anything"
           />
           <button type="submit">
-            <img src="/public/assets/search.svg" alt="search" />
+            <img src="/assets/search.svg" alt="search" />
           </button>
         </form>
       </div>
